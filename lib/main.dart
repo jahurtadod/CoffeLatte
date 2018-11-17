@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:coffe_latte/pages/inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:coffe_latte/page_dragger.dart';
 import 'package:coffe_latte/page_reveal.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new MyHomePage(),
+       routes: <String, WidgetBuilder> {
+        '/inicio': (BuildContext context) => new Inicio(), 
+      },
     );
   }
 }
@@ -54,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           }
         } else if (event.updateType == UpdateType.doneDragging) {
           print('Done dragging.');
-          if (slidePercent > 0.5) {
+          if (slidePercent > 0.3) {
             animatedPageDragger = new AnimatedPageDragger(
               slideDirection: slideDirection,
               transitionGoal: TransitionGoal.open,
@@ -100,6 +104,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           new Page(
             viewModel: pages[activeIndex],
             percentVisible: 1.0,
+            // continueStart: (activeIndex == pages.length - 1)? false : true,
           ),
           new PageReveal(
             revealPercent: slidePercent,
