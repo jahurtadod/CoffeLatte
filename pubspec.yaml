@@ -29,6 +29,10 @@ flutter:
   assets:
     - assets/icon.png
     - assets/icon2.png
+    - assets/formacion.png
+    - assets/inovacion.png
+    - assets/observatorio.png
+    - assets/encuentro.png
     - assets/KDA.png
     - assets/KDA2.jpg
     - assets/KDA3.png

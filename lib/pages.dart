@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 
 final pages = [
   new PageViewModel(
-    const Color(0xFF1A237E),
-    'assets/icon.png',
+    const Color(0xFF1A2377),
+    'assets/formacion.png',
     'Formación Docente',
     'Busca llevar una constante mejora de cada uno de nuestros formadores.',
     true,
   ),
   new PageViewModel(
     const Color(0xFFF57F17),
-    'assets/icon.png',
+    'assets/inovacion.png',
     'Innovación Docente',
     'Conoce las nuevas tendencias de nuestros Ascenderes.',
     true,
   ),
   new PageViewModel(
     const Color(0xFF00838F),
-    'assets/icon.png',
+    'assets/observatorio.png',
     'EduTendencias',
     'Conoce las noticias y tendencias de enseñanza.',
     true,
@@ -67,8 +67,8 @@ class Page extends StatelessWidget {
                     padding: new EdgeInsets.only(bottom: 25.0),
                     child: new Image.asset(
                       viewModel.heroAssetPath,
-                      width: 125.0,
-                      height: 125.0,
+                      width: 150.0,
+                      height: 150.0,
                       colorBlendMode: BlendMode.srcIn,
                       color: Colors.white,
                     ),
@@ -95,41 +95,26 @@ class Page extends StatelessWidget {
                   child: new Padding(
                     padding: new EdgeInsets.only(left: 30.0, right: 30.0),
                     child: Center(
-                        child: (viewModel.continueStart)
-                            ? new Text(
-                                viewModel.body,
-                                textAlign: TextAlign.center,
-                                style: new TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                ),
-                              )
-                            : new GestureDetector(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    new Text(
-                                      'COMENZAR',
-                                      textAlign: TextAlign.center,
-                                      style: new TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                      ),
-                                    ),
-                                    new Center(
-                                      child: IconButton(
-                                        icon: Icon(
-                                          Icons.arrow_forward,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                onTap: () {
-                                  Navigator.pushNamed(context, '/inicio');
-                                },
-                              )),
+                      child: (viewModel.continueStart)
+                          ? new Text(
+                              viewModel.body,
+                              textAlign: TextAlign.center,
+                              style: new TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.0,
+                              ),
+                            )
+                          : new OutlineButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/inicio');
+                              },
+                              textColor: Colors.white,
+                              color: Colors.blue.shade900,
+                              child: new Text(
+                                "COMENZAR",
+                              ),
+                            ),
+                    ),
                   ),
                 ),
               ]),
